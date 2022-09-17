@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bo otstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script>
+            Array.prototype.contains = function(v){
+                    for(var i=0; i< this.length; i++){
+                        if(this[i] === v) return true;
+                    }
+                    return false;
+                }
+                Array.prototype.unique = function(){
+                    var arr = [];
+                    for(var i=0; i< this.length; i++){
+                        if(!arr.contains(this[i])){
+                            arr.push(this[i]);
+                        }
+                    }
+                    return arr;
+                };
+        
+                function validateForm(){
+                    var pwd = document.registration.password.value;
+                    let regex1 = /(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*\d))(?!.*\s).{10,100}/i;
+                    let regex2 = /(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?!.*\s).{10,100}/i;
+                    let regex3 = /(?=(.*[A-Z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i;
+                    let regex4 = /(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i;
+                    let regex5 = /(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*\d))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?!.*\s).{10,100}/i;
+                    
+                    if(((regex1.test(pwd))  (regex2.test(pwd))  (regex3.test(pwd)) || (regex4.test(pwd))) && (pwd.split("").unique().length >= 5)){
+                        return true;
+                    }else{
+                        alert("Password should have 5 unique characters and atleast 3 of the following: uppercase, lowercase, numeric or spl character along with the length between 10 to 100");
+                        return false;
+                    }
+                };
+        </script>
+<style>
+
+.bg-container{
+background-color: saddlebrown;
+height: 150vh;
+background-size: cover;
+text-align: center;
+}
+
+.image{
+height: 200px;
+margin-bottom: 5px;
+margin-left: auto;
+margin-right: auto;
+width: 680px;
+padding-top: 10px;
+padding-bottom: 10px;
+
+}
+.name{
+color: snow;
+font-family: serif;
+text-align: left;
+font-size: 25px;
+margin-left: 212px;
+}
+form li{
+margin-bottom: 3px;
+list-style: none;
+}
+form ul li label{
+float: left;
+clear: left;
+width: 100px;
+text-align: center;
+margin-right: 10px;
+font-family:Arial, Helvetica, sans-serif,"Times New Roman";
+font-size:14px;
+color: black;
+font-weight: bold;
+font-size: 15px;
+font-family: "Roboto";
+
+
+}
+form ul li input, select, span {
+float: left;
+margin-bottom: 10px;
+text-align: center;
+background-color: saddlebrown;
+
+}
+form textarea {
+float: left;
+width: 350px;
+height: 150px;
+text-align: center;
+
+}
+[type="submit"] {
+clear: left;
+margin: 20px 0 0 230px;
+font-size:18px
+}
+
+.body{
+    box-sizing: border-box;
+    width: 50%;
+    border: 3px solid black;
+    float: left ;
+    background-color: antiquewhite;
+    margin-left: 8px;
+
+}
+::placeholder {
+    color: rgb(225, 213, 213);
+    font-size: 10px;
+    text-align: center; 
+}
+select{
+  width: 200px;
+  height: 40px;
+  padding: 5px;
+  color: white;
+  border-width: 3px;
+}
+hr.new{
+     border-top: 5px solid  black;
+     
+}
+.image1{
+    height: 350px;
+    margin-left: 140px;
+    margin-right: 150px;
+    margin: 15px;
+    width: 700px;
+    border-radius: 10px;
+}
+
+</style>
+</head>
+<body>
+    <div id="sectionhome">
+<div class = "bg-container">
+    
+<img src="https://res.cloudinary.com/saicharan7charan1422/image/upload/v1663416303/IMG_20220917_173200_lpl0zn.png" class="image">
+<hr class="new">
+<h1 class = "name"> <u><b>Register Here!!!</b></u> </h1>
+<div class="body"> 
+ 
+    <form   name='event registration' onsubmit="return validationform()" action="success.html">
+
+        
+<ul>
+<li><label for="username">Name:</label></li>
+<li ><input type="text" name ="username" placeholder="Enter your Name" size="50" required/></li>
+<li><label for="reg.no">Reg.No:</label></li>
+<li><input type="text" name="userid" placeholder="Enter your Reg No"  size="50"  required/></li>
+<li><label for="passid">Password:</label></li>
+<li><input type="password" name="passid" id="pwd"  title="password"  placeholder="Enter your Password"  size="50"  required/></li>
+<li><label for="email">Email:</label></li>
+<li><input type="text" name="email"  pattern="[a-z]+[\.][a-z]+@vitstudent.ac.in" title="Your VIT email" placeholder="Enter your Email ID" size="50" required /></li>
+<li><label for="Phone Number">Phone Number:</label></li>
+<li><input type="text" name="Phone Number"   pattern="\d{10}" title="Mobile number of 10 digits"  placeholder ="Enter Your Phone Number" size="50" required /></li>
+<li><label for="branch">Branch:</label></li>
+<li><input type="text" name="address"  placeholder="Enter your Branch"size="50" required /></li>
+<li><label for="zip">ZIP Code:</label></li>
+<li><input type="text" name="zip"  pattern=".{5}" title="Zip of 5 Characters" placeholder="Enter your Zip code" size="50" required/></li>
+<li><label id="gender">Sex:</label></li>
+<li><input type="checkbox" name="msex" value= "Male" /><span>Male</span></li>
+<li><input type="checkbox" name="fsex" value="Female" /><span>Female</span></li>
+<li><input type="checkbox" name="osex" value="Others" /><span>Others</span></li>
+<li><label for="event">Event:</label></li>
+<li><select name="Event">
+<option selected="" value="Default">Please select an Event</option>
+<option value="da">Gravitas Event</option>
+<option value="mu">Music Event</option>
+<option value="tc">Technical Event</option>
+<option value="ge">Dance Event</option>
+<option value="re">Riveria Event</option>
+</select></li>
+<li><input type="submit" name="SUBMIT" value="Register" /></li>
+</ul>
+</form>
+</div>
+<div class="d-flex flex-row justify-content-right">
+<img src="https://vit.ac.in/sites/default/files/VIT_9616.JPG" class="image1"/>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+</body>
+</html>
